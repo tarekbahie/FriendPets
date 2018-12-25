@@ -44,7 +44,7 @@ class PetsVC: UIViewController {
    static func setFriendName(friend : Friend){
     PetsVC.friendName = friend
     PetsVC.nameOfFriendReceived = friend.name!
-    print(PetsVC.nameOfFriendReceived)
+    //print(PetsVC.nameOfFriendReceived)
     }
     
     
@@ -61,6 +61,7 @@ class PetsVC: UIViewController {
     
     @IBAction func addPetsWasPressed(_ sender: Any) {
         performSegue(withIdentifier: "toCreatePets", sender: self)
+        CreatePetsVC.setFriendName(friendName: PetsVC.nameOfFriendReceived)
     }
     
     func fetchCoreDataObjects(){

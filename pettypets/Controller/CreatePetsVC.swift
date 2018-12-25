@@ -53,6 +53,7 @@ class CreatePetsVC: UIViewController, UICollectionViewDelegate {
         do {
             try managedContext.save()
             completion(true)
+            print(CreatePetsVC.nameOfFriendReceived)
         } catch {
             completion(false)
             debugPrint("Couldn't save : \(error.localizedDescription)")
@@ -62,9 +63,8 @@ class CreatePetsVC: UIViewController, UICollectionViewDelegate {
     
     
     
-    static func setFriendName(friend : Friend) {
-        CreatePetsVC.friendName = friend
-        CreatePetsVC.nameOfFriendReceived = friend.name!
+    static func setFriendName(friendName : String) {
+        CreatePetsVC.nameOfFriendReceived = friendName
         print(PetsVC.nameOfFriendReceived)
     }
 

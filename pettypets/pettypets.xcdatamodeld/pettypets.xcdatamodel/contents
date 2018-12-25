@@ -4,17 +4,15 @@
         <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="pet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" inverseName="friend" inverseEntity="Pet" syncable="YES"/>
     </entity>
     <entity name="Pet" representedClassName="Pet" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="friendName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="friend" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Friend" inverseName="pet" inverseEntity="Friend" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Friend" positionX="-18" positionY="27" width="128" height="105"/>
-        <element name="Pet" positionX="-18" positionY="54" width="128" height="120"/>
+        <element name="Friend" positionX="-18" positionY="27" width="128" height="90"/>
+        <element name="Pet" positionX="-18" positionY="54" width="128" height="105"/>
     </elements>
 </model>
