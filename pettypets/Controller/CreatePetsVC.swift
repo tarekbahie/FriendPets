@@ -15,6 +15,9 @@ class CreatePetsVC: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var typeTxtLbl: UITextField!
     @IBOutlet weak var createBtn: UIButton!
     
+    public static var friendName : Friend?
+    public static var nameOfFriendReceived = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: self, action: #selector(CreatePetsVC.handleTap))
@@ -43,10 +46,10 @@ class CreatePetsVC: UIViewController, UICollectionViewDelegate {
             return
         }
         let pet = Pet(context: managedContext)
-        let friend = Friend(context: managedContext)
         pet.name = nameTxtLbl.text
         pet.age = ageTxtLbl.text
         pet.type = typeTxtLbl.text
+        pet.friendName = CreatePetsVC.nameOfFriendReceived
         do {
             try managedContext.save()
             completion(true)
@@ -55,6 +58,14 @@ class CreatePetsVC: UIViewController, UICollectionViewDelegate {
             debugPrint("Couldn't save : \(error.localizedDescription)")
         }
         
+    }
+    
+    
+    
+    static func setFriendName(friend : Friend) {
+        CreatePetsVC.friendName = friend
+        CreatePetsVC.nameOfFriendReceived = friend.name!
+        print(PetsVC.nameOfFriendReceived)
     }
 
 }

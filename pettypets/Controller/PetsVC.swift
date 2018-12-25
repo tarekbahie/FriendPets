@@ -111,8 +111,9 @@ extension PetsVC {
     
     func fetch(completion : (_ complete : Bool)->()){
         guard let managedContext = appDelegate?.persistentContainer.viewContext else{return}
-        let fetchRequest = NSFetchRequest<Pet>(entityName: "Pet")
         do{
+        let fetchRequest = NSFetchRequest<Pet>(entityName: "Pet")
+        fetchRequest.predicate = NSPredicate(format: "friendName = %@", PetsVC.nameOfFriendReceived)
          pets = try managedContext.fetch(fetchRequest)
             completion(true)
         } catch {
